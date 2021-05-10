@@ -20,6 +20,7 @@ end
 group :test do
   gem 'capybara', '~> 3.35', '>= 3.35.3'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
 end
 
 group :development do
