@@ -1,0 +1,9 @@
+<h1><%= @user.name %>'s profile</h1>
+<%= form_with model: @user do |form| %>
+  <%= form.label :name, "Name: #{ @user.name.capitalize }" %>
+  <%= form.text_field :name, value: nil %>
+  <br>
+  <%= form.label :email, "Email: #{ @user.email }" %>
+  <%= form.text_field :email, value: nil %>
+  <%= form.submit "Update profile" %>
+<% end %>

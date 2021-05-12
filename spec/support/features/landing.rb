@@ -1,7 +1,7 @@
 module Features
 
   def display_welcome
-    have_css "h1.welcome", text: "Welcome to Cycling Company"
+    have_css "h1.welcome", text: "Cycling Company"
   end
 
   def greet_user(name)

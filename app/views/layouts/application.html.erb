@@ -21,6 +21,7 @@
     <% if user_signed_in? %>
       <h2 class="welcome">Welcome back, <%= current_user.name %>!</h2>
       <%= link_to "Add a new ride", new_user_ride_path(current_user) %>
+      <%= link_to "Edit profile", edit_user_path(current_user) %>
     <% end %>
     <%= yield %>
   </body>
