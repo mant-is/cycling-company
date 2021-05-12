@@ -1,13 +1,12 @@
-<%= link_to "Sign up", new_user_registration_path %>
-<%= link_to "Sign in", new_user_session_path %>
-<% if user_signed_in? %>
-  <h2 class="welcome">Welcome back, <%= current_user.name %>!</h2>
-  <table class="rides">
-    <thead>
-      <tr>
-        <th>Location</th>
-      </tr>
-    </thead>
-  </table> 
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-<% end %>
+<table class="rides">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Tempo</th>
+      <th>Distance</th>
+    </tr>
+  </thead>
+</table> 
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+

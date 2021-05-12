@@ -1,0 +1,18 @@
+<!-- this form will go into a partial -->
+<%= form_with model: @ride, url: user_rides_path do |form| %>
+  <%= form.label :location %>
+  <%= form.text_field :location %>
+  <%= form.label :level %>
+  <%= form.text_field :level %>
+  <%= form.label :distance%>
+  <%= form.text_field :distance %>
+  <%= form.label :date %>
+  <%= form.text_field :date %>
+  <%= form.label :time %>
+  <%= form.text_field :time %>
+  <%= form.label :group_size %>
+  <%= form.text_field :group_size %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <%= form.submit :"Create ride" %>
+<% end %>
