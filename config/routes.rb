@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :users do
     resources :rides, only: [:index, :new, :create]
   end
+
+  resources :rides, only: :show
 end

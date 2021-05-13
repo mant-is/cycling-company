@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       flash.keep.notice = "Profile updated successfully"
       redirect_to root_path
     else
-      flash.now.alert = "Error: Unable to update your information."
+      flash.now.alert = "Error: Unable to update your information"
       render :edit
     end
   end

@@ -1,12 +1,25 @@
-<table class="rides">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Tempo</th>
-      <th>Distance</th>
-    </tr>
-  </thead>
-</table> 
-<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-
+<% if user_signed_in? %>
+  <table class="rides">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Tempo</th>
+        <th>Distance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rides.limit(20).each do |ride| %> 
+        <tr>
+          <td><%= link_to "#{ ride.title }", ride_path(ride.id) %></td>
+          <td><%= ride.date %></td>
+          <td><%= ride.location %></td>
+          <td><%= ride.tempo %></td>
+          <td><%= ride.distance %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table> 
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<% end %>

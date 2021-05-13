@@ -1,6 +1,7 @@
 class RidesController < ApplicationController
 
   def index
+    @rides = Ride.all
   end
 
   def new
@@ -16,6 +17,10 @@ class RidesController < ApplicationController
       flash.now.alert = "Error. Unable to save your ride"
       render :new
     end
+  end
+
+  def show
+    @ride = Ride.find(params[:id])
   end
 
   private
