@@ -1,1 +1,37 @@
-<div class="ride-view"><%= @ride.title %></div>
+<div class="ride-view">
+  <table>
+    <tbody>
+      <tr>
+        <th>Ride creator:</th>
+        <td><%= @ride.owner.name %></td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td><%= @ride.location %></td>
+      </tr>
+      <tr>
+        <th>Title</th>
+        <td><%= @ride.title %></td>
+      </tr>
+      <tr>  
+        <th>Date</th>
+        <td><%= @ride.date.strftime("%m/%d/%Y") %></td>
+      </tr>  
+      <tr>
+        <th>Time</th>
+        <td><%= @ride.time.strftime("%l:%M %p") %></td>
+      </tr>
+      <tr>
+        <th>Distance</th>
+        <td><%= @ride.distance %>&nbsp;miles</td>
+      </tr>
+      <tr>  
+        <th>Level</th>
+        <td><%= @ride.level %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<% if current_user == @ride.owner %>
+  <%= link_to "Delete ride", user_ride_path(@ride), method: :delete %>
+<% end %>
