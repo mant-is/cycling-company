@@ -3,7 +3,7 @@
     <tbody>
       <tr>
         <th>Ride creator:</th>
-        <td><%= @ride.owner.name %></td>
+        <td><%= @ride.leader.name %></td>
       </tr>
       <tr>
         <th>Location</th>
@@ -32,6 +32,6 @@
     </tbody>
   </table>
 </div>
-<% if current_user == @ride.owner %>
+<% if current_user == @ride.leader %>
   <%= link_to "Delete ride", user_ride_path(@ride), method: :delete %>
 <% end %>

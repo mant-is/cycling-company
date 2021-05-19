@@ -16,12 +16,13 @@ gem 'devise', '~> 4.8'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  gem 'factory_bot_rails', '~> 6.2'
 end
 
 group :test do
   gem 'capybara', '~> 3.35', '>= 3.35.3'
   gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
-  gem 'factory_bot_rails', '~> 6.2'
+  gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
 end
 
 group :development do
