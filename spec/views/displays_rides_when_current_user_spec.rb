@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "display a list of upcoming rides" do
-  scenario "when user is signed in" do
+  xscenario "when user is signed in" do
     visit root_path
     sign_up "bam@bapfoo.com", "Jacob Lross", "redfred123", "redfred123" 
     sign_out

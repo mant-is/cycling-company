@@ -10,7 +10,7 @@ class RidesController < ApplicationController
 
   def create
     @ride = current_user.rides.build(rides_params) 
-    @ride.date = DateTime.strptime(rides_params[:date], "%m/%d/%Y")
+    @ride.date = DateTime.strptime(rides_params[:date], "%Y-%m-%d")
     if @ride.save
       flash.keep.notice = "Ride created successfully"
       redirect_to root_path

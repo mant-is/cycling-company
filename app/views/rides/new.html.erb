@@ -2,17 +2,25 @@
 <%= form_with model: @ride, url: user_rides_path do |form| %>
   <%= form.label :location %>
   <%= form.text_field :location %>
+  <br>
   <%= form.label :level %>
   <%= form.text_field :level %>
-  <%= form.label :distance%>
+  <br>
+  <%= form.label :distance %>
   <%= form.text_field :distance %>
+  <br>
   <%= form.label :date %>
   <%= form.date_field :date %>
+  <br>
   <%= form.label :time %>
   <%= form.text_field :time %>
+  <br>
   <%= form.label :group_size %>
   <%= form.text_field :group_size %>
+  <br>
   <%= form.label :title %>
   <%= form.text_field :title %>
-  <%= form.submit :"Create ride" %>
+  <br>
+  <%= form.submit :'Create ride' %>
 <% end %>
+<%= link_to 'Cancel', :back %>
