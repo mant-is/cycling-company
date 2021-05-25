@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_19_020848) do
+ActiveRecord::Schema.define(version: 2021_05_23_154046) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "user_id", null: false
+    t.integer "ride_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ride_id"], name: "index_comments_on_ride_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "rides", force: :cascade do |t|
     t.decimal "distance"
@@ -28,6 +38,15 @@ ActiveRecord::Schema.define(version: 2021_05_19_020848) do
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
 
+  create_table "user_rides", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "ride_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ride_id"], name: "index_user_rides_on_ride_id"
+    t.index ["user_id"], name: "index_user_rides_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -37,11 +56,14 @@ ActiveRecord::Schema.define(version: 2021_05_19_020848) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
-    t.integer "ride_id"
+    t.bigint "ride_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "rides"
+  add_foreign_key "comments", "users"
   add_foreign_key "rides", "users"
-  add_foreign_key "users", "rides"
+  add_foreign_key "user_rides", "rides"
+  add_foreign_key "user_rides", "users"
 end

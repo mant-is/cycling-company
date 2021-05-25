@@ -10,14 +10,26 @@
       </tr>
     </thead>
     <tbody>
-      <% @rides.limit(20).each do |ride| %> 
-        <tr>
-          <td><%= link_to "#{ ride.title }", ride_path(ride.id) %></td>
-          <td><%= ride.date %></td>
-          <td><%= ride.location %></td>
-          <td><%= ride.tempo %></td>
-          <td><%= ride.distance %></td>
-        </tr>
+      <% if @rides %>
+        <% if @rides.length < 2 %>
+          <tr>
+            <td><%= link_to "#{ @rides.title }", ride_path(ride.id) %></td>
+            <td><%= @rides.date %></td>
+            <td><%= @rides.location %></td>
+            <td><%= @rides.tempo %></td>
+            <td><%= @rides.distance %></td>
+          </tr>
+        <% else %>
+          <% @rides.limit(20).each do |ride| %> 
+            <tr>
+              <td><%= link_to "#{ ride.title }", ride_path(ride.id) %></td>
+              <td><%= ride.date %></td>
+              <td><%= ride.location %></td>
+              <td><%= ride.tempo %></td>
+              <td><%= ride.distance %></td>
+            </tr>
+          <% end %>
+        <% end %>
       <% end %>
     </tbody>
   </table> 
