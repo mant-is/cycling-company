@@ -34,17 +34,6 @@ ActiveRecord::Schema.define(version: 2021_05_23_154046) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "level"
     t.integer "group_size"
-    t.integer "user_id", null: false
-    t.index ["user_id"], name: "index_rides_on_user_id"
-  end
-
-  create_table "user_rides", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "ride_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["ride_id"], name: "index_user_rides_on_ride_id"
-    t.index ["user_id"], name: "index_user_rides_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,7 +52,4 @@ ActiveRecord::Schema.define(version: 2021_05_23_154046) do
 
   add_foreign_key "comments", "rides"
   add_foreign_key "comments", "users"
-  add_foreign_key "rides", "users"
-  add_foreign_key "user_rides", "rides"
-  add_foreign_key "user_rides", "users"
 end
